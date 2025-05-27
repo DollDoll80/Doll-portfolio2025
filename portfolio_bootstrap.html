@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio-Kamangala</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #6f42c1;
+            --secondary-color: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-weight: 700;
+        }
+        .bg-purple {
+            background-color: var(--primary-color);
+        }
+        .text-purple {
+            color: var(--primary-color);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #000000 100%);
+            color: white;
+            padding: 100px 0;
+        }
+        .btn-purple {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .btn-purple:hover {
+            background-color: #000000;
+            color: white;
+        }
+        .btn-outline-purple {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        .btn-outline-purple:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .skill-card {
+            transition: all 0.3s;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .portfolio-img {
+            transition: all 0.5s;
+        }
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        .testimonial-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+        }
+        .contact-section {
+            background-color: var(--secondary-color);
+        }
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.25);
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+        }
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-purple" href="#"><span class="text-warning">Portfolio </span> Kamangala</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Mes Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Témoignages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Je suis <span class="text-warning">Kamangala Isanda Julien</span></h1>
+                    <p class="lead mb-4">Analyste de données & Développeur logiciel <br>Développeur Full Stack & Designer UI/UX</p>
+                    <p>Je crée des expériences numériques magnifiques et fonctionnelles qui aident les entreprises à prospérer en ligne.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#contact" class="btn btn-light btn-lg px-4">Me contacter</a>
+                        <a href="#portfolio" class="btn btn-outline-light btn-lg px-4">Voir mon travail</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="profile.JPG" alt="Photo de profil" width="300px" class="img-fluid rounded-circle shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">À propos de moi</h2>
+                    <p class="lead">Passionné par le développement web et le design depuis plus de 5 ans, j'aide les entreprises à concrétiser leurs idées en solutions numériques efficaces.</p>
+                    <p>Après des études en informatique à l'Université de Paris, j'ai travaillé avec diverses startups et entreprises établies pour créer des sites web, applications mobiles et solutions e-commerce.</p>
+                    <p>Mon approche combine une attention aux détails du design avec une expertise technique solide pour livrer des produits qui fonctionnent aussi bien qu'ils sont beaux.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Développement Web</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Design UI/UX</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Applications Mobiles</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Développe,ent logiciel</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Traitement des base de données</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Système d'exploitation (Windows & Linux)</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> SEO & Marketing</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> E-commerce</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Formation</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Analyse de données</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-purple me-2"></i> Bureautique</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card skill-card h-100">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4">Mes compétences</h3>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>HTML/CSS</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>JavaScript</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>PHP</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>React</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Node.js</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>UI/UX Design</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Microsoft Office</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Power BI & Tableau</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Cobocollect / Google Forms / Power Automate </span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Mes compétences techniques</h2>
+                <p class="lead text-muted">Technologies que j'utilise pour créer des solutions exceptionnelles</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card skill-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-dark bg-opacity-10 text-purple rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="bi bi-code-slash fs-3"></i>
+                            </div>
+                            <h4 class="mb-3">Développement Frontend</h4>
+                            <p class="text-muted">HTML5, CSS3, JavaScript, React, Vue.js, Bootstrap, Tailwind CSS</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card skill-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-dark bg-opacity-10 text-purple rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="bi bi-server fs-3"></i>
+                            </div>
+                            <h4 class="mb-3">Développement Backend</h4>
+                            <p class="text-muted">PHP, Node.js, Express, MongoDB, MySQL, PostgreSQL, API REST</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card skill-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-dark bg-opacity-10 text-purple rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="bi bi-phone fs-3"></i>
+                            </div>
+                            <h4 class="mb-3">Applications Mobiles</h4>
+                            <p class="text-muted">React Native, Flutter, Responsive Design</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card skill-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-dark bg-opacity-10 text-purple rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="bi bi-palette fs-3"></i>
+                            </div>
+                            <h4 class="mb-3">UI/UX Design</h4>
+                            <p class="text-muted">Figma, Adobe XD, Design System</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card skill-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-dark bg-opacity-10 text-purple rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="bi bi-cart fs-3"></i>
+                            </div>
+                            <h4 class="mb-3">E-commerce</h4>
+                            <p class="text-muted">Shopify, WooCommerce, Paypal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card skill-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-dark bg-opacity-10 text-purple rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="bi bi-graph-up fs-3"></i>
+                            </div>
+                            <h4 class="mb-3">SEO & Marketing</h4>
+                            <p class="text-muted">Optimisation SEO, Google Analytics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Mes Projets</h2>
+                <p class="lead text-muted">Quelques-uns de mes projets récents</p>
+                <div class="d-flex justify-content-center mt-4">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-dark active">Tous</button>
+                        <button type="button" class="btn btn-outline-dark">Web</button>
+                        <button type="button" class="btn btn-outline-dark">Mobile</button>
+                        <button type="button" class="btn btn-outline-dark">Design</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <img src="Capture_1.PNG" alt="Projet 1" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4>Site E-commerce</h4>
+                            <p>Plateforme de vente en ligne</p>
+                            <a href="#" class="btn btn-light mt-2">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <img src="Capture_5.PNG" alt="Projet 2" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4>Application Mobile</h4>
+                            <p>Gestion de fitness</p>
+                            <a href="#" class="btn btn-light mt-2">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <img src="Capture_3.PNG" alt="Projet 3" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4>Dashboard Admin</h4>
+                            <p>Interface d'administration</p>
+                            <a href="#" class="btn btn-light mt-2">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <img src="Capture_2.PNG" alt="Projet 4" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4>Site Vitrine</h4>
+                            <p>Site corporate</p>
+                            <a href="#" class="btn btn-light mt-2">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <img src="Capture_4.PNG" alt="Projet 5" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4>Application Web</h4>
+                            <p>Gestion de projet</p>
+                            <a href="#" class="btn btn-light mt-2">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <img src="Capture_6.PNG" alt="Projet 6" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4>Redesign</h4>
+                            <p>Refonte d'interface</p>
+                            <a href="#" class="btn btn-light mt-2">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-dark btn-lg px-4">Voir plus de projets</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Témoignages</h2>
+                <p class="lead text-muted">Ce que disent mes clients</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body text-center p-4">
+                            <img src="images (3).jpeg" alt="Client 1" class="testimonial-img mb-3">
+                            <h5 class="mb-2">Marie Laure</h5>
+                            <p class="text-muted mb-3">Indépendant</p>
+                            <p class="mb-0">"Julien a transformé notre présence en ligne avec un site web magnifique et fonctionnel. Son professionnalisme et sa créativité ont dépassé nos attentes."</p>
+                            <div class="mt-3 text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body text-center p-4">
+                            <img src="images (2).jpeg" alt="Client 2" class="testimonial-img mb-3">
+                            <h5 class="mb-2">Diddier Mwaka</h5>
+                            <p class="text-muted mb-3">Indépendant</p>
+                            <p class="mb-0">"Le travail de Julien sur notre application mobile a été exceptionnel. Il a su comprendre nos besoins et livrer une solution parfaite dans les délais."</p>
+                            <div class="mt-3 text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body text-center p-4">
+                            <img src="images (4).jpeg" alt="Client 3" class="testimonial-img mb-3">
+                            <h5 class="mb-2">Sophie Sophie</h5>
+                            <p class="text-muted mb-3">Directrice, StartupUzima</p>
+                            <p class="mb-0">"Travailler avec Julien a été un plaisir. Son expertise en UI/UX a considérablement amélioré l'expérience utilisateur de notre produit."</p>
+                            <div class="mt-3 text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Contactez-moi</h2>
+                    <p class="lead mb-4">Vous avez un projet en tête? Parlons-en!</p>
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-dark bg-opacity-10 text-purple rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Email</h5>
+                                <p class="mb-0">Kamangalaisanda5@gmail.com <br> dollmicrosoft76@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-dark bg-opacity-10 text-purple rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <i class="bi bi-phone"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Téléphone</h5>
+                                <p class="mb-0">+243 906 515 599 <br> +243 976 907 638</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="bg-dark bg-opacity-10 text-purple rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Adresse</h5>
+                                <p class="mb-0">Av.Du Stade N2, Q.Ndendere, Ville Bukavu, République Democratique du Congo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <h5 class="mb-3">Suivez-moi</h5>
+                        <a href="https://www.x.com/@julien367593196" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/Kamangala-isanda-ba59a0345" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+                        <!-- <a href="#" class="social-icon"><i class="bi bi-dribbble"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-behance"></i></a> -->
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card shadow">
+                        <div class="card-body p-4">
+                            <h3 class="mb-4">Envoyez un message</h3>
+                            <form action="kamangalaisanda5@gmail.com" method="post">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nom complet</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Sujet</label>
+                                    <input type="text" class="form-control" id="subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-dark">Envoyer le message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-white mb-4">Portfolio kamangala Isanda Julien</h3>
+                    <p>Création de solutions web et mobiles sur mesure pour votre entreprise.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-white mb-4">Liens rapides</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-white-50 text-decoration-none">Accueil</a></li>
+                        <li class="mb-2"><a href="#about" class="text-white-50 text-decoration-none">À propos</a></li>
+                        <li class="mb-2"><a href="#skills" class="text-white-50 text-decoration-none">Compétences</a></li>
+                        <li class="mb-2"><a href="#portfolio" class="text-white-50 text-decoration-none">Portfolio</a></li>
+                        <li><a href="#contact" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-white mb-4">Contact</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i> kamangalaisanda5@gmail.com <br>dollmicrosoft76@gmail.com</li>
+                        <li class="mb-2"><i class="bi bi-phone me-2"></i> +243 906 525 599 <br>+243 976 907 638</li>
+                        <li><i class="bi bi-geo-alt me-2"></i> Sud-Kivu, République Démocratique du CongoDC</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 DollDoll. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://www.x.com/@julien367593196" class="social-icon"><i class="bi bi-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/Kamangala-isanda-ba59a0345" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="btn btn-purple btn-lg back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.opacity = '1';
+                backToTopButton.style.visibility = 'visible';
+            } else {
+                backToTopButton.style.opacity = '0';
+                backToTopButton.style.visibility = 'hidden';
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                }
+            });
+        });
+        
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
